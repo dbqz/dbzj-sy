@@ -1,4 +1,4 @@
-import { TrendingDown, TrendingUp, Users, GraduationCap, Newspaper, Eye } from "lucide-react"
+import { /* TrendingDown, */ TrendingUp, Users, GraduationCap, /* Newspaper, */ Eye } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import {

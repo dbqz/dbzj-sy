@@ -20,7 +20,7 @@ interface User {
 }
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<User | null>(null);
+  const [, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const verifyAuth = async () => {

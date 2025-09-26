@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Card, CardBody, CardHeader, Spinner, Button } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, /* Spinner, */ Button } from "@nextui-org/react";
 import { Play, RefreshCw, Clock } from "lucide-react";
 import Image from "next/image";
 

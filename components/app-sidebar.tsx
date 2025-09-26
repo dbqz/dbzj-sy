@@ -7,9 +7,9 @@ import {
   IconLogout
 } from "@tabler/icons-react"
 
-import { NavDocuments } from "@/components/nav-documents"
+// import { NavDocuments } from "@/components/nav-documents" // 未使用
 import { NavMain } from "@/components/nav-main"
-import { NavSecondary } from "@/components/nav-secondary"
+// import { NavSecondary } from "@/components/nav-secondary" // 未使用
 import { NavUser } from "@/components/nav-user"
 import {
   Sidebar,

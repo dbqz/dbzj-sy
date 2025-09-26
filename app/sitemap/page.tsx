@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Map, ExternalLink, Home, Newspaper, Camera, Handshake, Briefcase, School, Users, Settings } from "lucide-react";
+import { ArrowLeft, Map, ExternalLink, Home, /* Newspaper, Camera, Handshake, Briefcase, */ School, Users, Settings } from "lucide-react";
 import { Button } from "@nextui-org/react";
 
 export default function SitemapPage() {

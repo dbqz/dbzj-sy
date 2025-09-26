@@ -5,6 +5,7 @@ import { Button } from "@nextui-org/react";
 import useGsapReveal from "@/hooks/useGsapReveal";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { School, Building2, Users, Newspaper, Handshake, Briefcase, Camera, Calendar, MessageCircle, Terminal } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -338,10 +339,11 @@ export default function Home() {
                 <Link href="/campus" className="block">
                   <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-background to-accent/20 hover:shadow-2xl transition-all duration-500">
                     {/* 图片 */}
-                    <img
+                    <Image
                       src={image.url}
                       alt={image.title}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -654,6 +656,8 @@ function SectionHeader({ title, subtitle, actionHref, actionText }: { title: str
   );
 }
 
+// 未使用的组件，保留以备将来使用
+/*
 function SocialLink({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
   return (
     <motion.div
@@ -680,3 +684,4 @@ function SocialLink({ href, label, children }: { href: string; label: string; ch
     </motion.div>
   );
 }
+*/

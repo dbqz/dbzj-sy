@@ -80,7 +80,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ slug: str
           text: news.title,
           url: window.location.href,
         });
-      } catch (error) {
+      } catch {
         console.log("分享取消");
       }
     } else {

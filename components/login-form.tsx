@@ -46,7 +46,7 @@ export function LoginForm({
       } else {
         setError(data.error || "登录失败");
       }
-    } catch (err) {
+    } catch {
       setError("网络错误，请稍后重试");
     } finally {
       setIsLoading(false);

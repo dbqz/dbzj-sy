@@ -16,6 +16,7 @@ import { Switch } from "@/components/ui/switch";
 import { RichTextEditor } from "@/components/rich-text-editor";
 import { ArrowLeft, Save, Eye, Upload, Loader2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { toast } from "sonner";
 import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 
@@ -315,11 +316,14 @@ export default function EditNewsPage({ params }: NewsEditPageProps) {
                       <CardContent className="space-y-4">
                         {formData.coverUrl ? (
                           <div className="space-y-2">
-                            <img
-                              src={formData.coverUrl}
-                              alt="封面预览"
-                              className="w-full h-32 object-cover rounded-lg border"
-                            />
+                            <div className="relative w-full h-32 rounded-lg border overflow-hidden">
+                              <Image
+                                src={formData.coverUrl}
+                                alt="封面预览"
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
                             <Button
                               variant="outline"
                               size="sm"
