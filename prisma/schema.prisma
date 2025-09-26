@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  auditLogs    AuditLog[]
+  newsAuthored News[]    @relation("AdminUserToNews")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String
+  actor     AdminUser @relation(fields: [actorId], references: [id])
+  action    String
+  target    String?
+  createdAt DateTime @default(now())
+}
+
+model News {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  content     String    // 富文本存储为 HTML/Markdown
+  coverUrl    String?
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  authorId    String?
+  author      AdminUser? @relation(fields: [authorId], references: [id], name: "AdminUserToNews")
+}
+
+model MediaAsset {
+  id          String   @id @default(cuid())
+  url         String   @unique
+  type        String   // image/video/document
+  title       String?
+  description String?
+  category    String?  // buildings/workshops/activities/facilities
+  thumbnailUrl String?
+  duration    String?  // for videos
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Major {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  prospects   String?  // 就业前景
+}
+
+model Teacher {
+  id        String   @id @default(cuid())
+  name      String
+  title     String?
+  isDual    Boolean  @default(false) // 双师型
+  bio       String?
+}
+
+model Partnership {
+  id        String   @id @default(cuid())
+  name      String
+  details   String?
+  createdAt DateTime @default(now())
+}
+
+model JobRecord {
+  id        String   @id @default(cuid())
+  student   String
+  major     String
+  company   String
+  location  String
+  createdAt DateTime @default(now())
+}

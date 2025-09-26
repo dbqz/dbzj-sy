@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "学校新闻管理",
+    "type": "内容管理",
+    "status": "正常",
+    "count": "45",
+    "lastUpdate": "2小时前",
+    "author": "系统管理员"
+  },
+  {
+    "id": 2,
+    "title": "校园图片管理",
+    "type": "媒体管理",
+    "status": "正常",
+    "count": "128",
+    "lastUpdate": "1天前",
+    "author": "系统管理员"
+  },
+  {
+    "id": 3,
+    "title": "学生信息管理",
+    "type": "用户管理",
+    "status": "正常",
+    "count": "2240",
+    "lastUpdate": "3小时前",
+    "author": "教务处"
+  },
+  {
+    "id": 4,
+    "title": "教师信息管理",
+    "type": "用户管理",
+    "status": "正常",
+    "count": "182",
+    "lastUpdate": "1天前",
+    "author": "人事处"
+  },
+  {
+    "id": 5,
+    "title": "专业设置管理",
+    "type": "教学管理",
+    "status": "正常",
+    "count": "12",
+    "lastUpdate": "1周前",
+    "author": "教务处"
+  },
+  {
+    "id": 6,
+    "title": "就业信息管理",
+    "type": "就业服务",
+    "status": "正常",
+    "count": "1200",
+    "lastUpdate": "4小时前",
+    "author": "就业办"
+  },
+  {
+    "id": 7,
+    "title": "合作院校管理",
+    "type": "合作管理",
+    "status": "正常",
+    "count": "3",
+    "lastUpdate": "2天前",
+    "author": "校办"
+  },
+  {
+    "id": 8,
+    "title": "网站访问统计",
+    "type": "数据分析",
+    "status": "正常",
+    "count": "15680",
+    "lastUpdate": "实时",
+    "author": "系统"
+  },
+  {
+    "id": 9,
+    "title": "系统日志管理",
+    "type": "系统管理",
+    "status": "正常",
+    "count": "892",
+    "lastUpdate": "1小时前",
+    "author": "系统"
+  },
+  {
+    "id": 10,
+    "title": "用户权限管理",
+    "type": "安全管理",
+    "status": "正常",
+    "count": "8",
+    "lastUpdate": "3天前",
+    "author": "系统管理员"
+  }
+]
