@@ -13,7 +13,11 @@ export async function GET(request: NextRequest) {
         }
 
         // 验证 JWT token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key') as any;
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key') as jwt.JwtPayload & {
+            userId: string;
+            email: string;
+            name: string;
+        };
 
         return NextResponse.json({
             success: true,
@@ -24,7 +28,7 @@ export async function GET(request: NextRequest) {
             },
         });
 
-    } catch (error) {
+    } catch {
         // token 无效
         const response = NextResponse.json(
             { error: "登录已过期" },

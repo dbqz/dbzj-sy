@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const type = searchParams.get("type"); // image or video
     const limit = parseInt(searchParams.get("limit") || "10");
 
-    const where: any = {};
+    const where: { category?: string; type?: string } = {};
     
     if (category) {
       where.category = category;

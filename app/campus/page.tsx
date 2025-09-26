@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import useGsapReveal from "@/hooks/useGsapReveal";
-import { Button, Card, CardBody, CardHeader, Tabs, Tab, Modal, ModalContent, ModalHeader, ModalBody, useDisclosure } from "@nextui-org/react";
+import { Card, CardBody, Tabs, Tab, Modal, ModalContent, ModalHeader, ModalBody, useDisclosure } from "@nextui-org/react";
 import { useState } from "react";
 import Image from "next/image";
 import { Building2, Wrench, GraduationCap, Users, Play, Camera, MapPin } from "lucide-react";
@@ -31,7 +31,7 @@ export default function CampusPage() {
     onMediaOpen();
   };
 
-  const handleVideoClick = (video: any) => {
+  const handleVideoClick = (video: { id: string; url: string; title: string; description?: string; thumbnailUrl?: string; duration?: string }) => {
     // 将 VideoAsset 转换为 MediaAsset 格式
     const mediaAsset: MediaAsset = {
       id: video.id,
@@ -59,11 +59,12 @@ export default function CampusPage() {
         <div className="relative h-[60vh] min-h-[400px] rounded-2xl overflow-hidden shadow-2xl">
           {/* 背景图片 */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-primary/40">
-            {/* 使用普通 img 标签避免 Next.js 图片域名限制 */}
-            <img
+            {/* 使用 Next.js Image 组件 */}
+            <Image
               src="https://youke1.picui.cn/s1/2025/09/21/68d013d71378c.jpg"
               alt="定边职教中心校园全景"
-              className="absolute inset-0 w-full h-full object-cover opacity-70"
+              fill
+              className="object-cover opacity-70"
               onError={(e) => {
                 // 图片加载失败时隐藏
                 const target = e.target as HTMLImageElement;

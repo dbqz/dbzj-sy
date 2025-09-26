@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
@@ -40,11 +40,7 @@ export default function EditNewsPage({ params }: NewsEditPageProps) {
     isPublished: false,
   });
 
-  useEffect(() => {
-    fetchNews();
-  }, [params.id]);
-
-  const fetchNews = async () => {
+  const fetchNews = useCallback(async () => {
     try {
       const response = await fetch(`/api/news/${params.id}`);
       if (response.ok) {
@@ -67,7 +63,11 @@ export default function EditNewsPage({ params }: NewsEditPageProps) {
     } finally {
       setInitialLoading(false);
     }
-  };
+  }, [params.id, router]);
+
+  useEffect(() => {
+    fetchNews();
+  }, [fetchNews]);
 
   const handleTitleChange = (title: string) => {
     const slug = title

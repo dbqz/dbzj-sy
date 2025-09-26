@@ -90,7 +90,7 @@ export function RichTextEditor({ content, onChange, placeholder = "开始编写�
   // 确保内容更新时编辑器也更新
   useEffect(() => {
     if (editor && content !== editor.getHTML()) {
-      editor.commands.setContent(content, false);
+      editor.commands.setContent(content, { emitUpdate: false });
     }
   }, [content, editor]);
 

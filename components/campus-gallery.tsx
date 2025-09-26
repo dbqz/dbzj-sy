@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Card, CardBody, CardHeader, Spinner, Button } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Button } from "@nextui-org/react";
 import { Camera, Play, RefreshCw } from "lucide-react";
 import Image from "next/image";
 
@@ -27,7 +27,7 @@ export default function CampusGallery({ category, onItemClick }: CampusGalleryPr
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const fetchMediaAssets = async () => {
+  const fetchMediaAssets = useCallback(async () => {
     try {
       setLoading(true);
       setError(false);
@@ -52,17 +52,17 @@ export default function CampusGallery({ category, onItemClick }: CampusGalleryPr
     } finally {
       setLoading(false);
     }
-  };
+  }, [category]);
 
   useEffect(() => {
     fetchMediaAssets();
-  }, [category]);
+  }, [fetchMediaAssets]);
 
   if (loading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[1, 2, 3, 4, 5, 6].map((i) => (
-          <Card key={i} className="animate-pulse">
+          <Card key={i}>
             <CardHeader className="pb-2">
               <div className="w-full aspect-[4/3] bg-gray-200 rounded-lg"></div>
             </CardHeader>

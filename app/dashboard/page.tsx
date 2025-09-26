@@ -15,15 +15,13 @@ import { Loader2 } from "lucide-react"
 import schoolData from "./school-data.json"
 
 interface User {
-  id: string;
-  email: string;
   name: string;
+  email: string;
 }
 
 export default function DashboardPage() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const verifyAuth = async () => {
       try {
